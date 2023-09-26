@@ -3,7 +3,7 @@
 <div *ngFor="let product of products">
 
         <h3>
-        <a [title]="product.name + ' details'"> {{product.name}} </a>
+        <a [title]="product.name + ' details'" [routerLink]="['/products', product.id]"> {{product.name}} </a> <!--one-way data binding from a component's property (in TypeScript) to an HTML element's property-->
         </h3>
 
         <p *ngIf="product.description">
@@ -12,4 +12,5 @@
         
         <button type="button" (click)="share()">Share</button>
         <app-product-alerts [product]="product" (notify)="onNotify()"></app-product-alerts>
+        
 </div>
