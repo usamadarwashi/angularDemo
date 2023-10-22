@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { CartService } from '../cart.service';
+import { Product, products } from '../products';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-top-bar',
@@ -6,9 +9,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./top-bar.component.css']
 })
 export class TopBarComponent {
+  constructor(private cartService: CartService, private router: Router){}
+
+  checkCart(){
+    this.cartService.itemsStream.subscribe(items => { // subscribe to the changes
+      if(!items || items.length === 0){
+        window.alert('Your cart is empty');
+      }
+      else {
+        this.router.navigateByUrl('/cart');
+      }
+    });
+  }  
 
 }
-
 
 /*
 Copyright Google LLC. All Rights Reserved.

@@ -20,7 +20,8 @@ import { ShippingComponent } from './shipping/shipping.component';
     RouterModule.forRoot([ //this module provides a service that lets you define navigation among views or routing in Angular applications. The forRoot() method is a configuration method that takes an array of route definitions and ensures we are only installing the Router service once.
       { path: '', component: ProductListComponent }, //corresponds to the default or base route. The path here is an empty string (''), which means this component will be displayed when the application URL has no additional path appended after the base URL (like http://www.website.com/).
       { path: 'products/:productId', component: ProductDetailsComponent},
-      { path: 'cart', component: CartComponent}
+      { path: 'cart', component: CartComponent},
+      { path: 'shipping', component: ShippingComponent },
     ])
   ],
   declarations: [
